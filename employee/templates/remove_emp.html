@@ -1,0 +1,59 @@
+<!-- other_template.html -->
+{% extends 'base.html' %} {% block title %}Page Title{% endblock %} {% block content %}
+<div class="container">
+    {% for message in messages %} {% if message.tags == "success" %}
+    <div class="alert alert-success" role="alert" id="alertMessage">
+        {{message}}
+
+    </div>
+    {% else %}
+    <div class="alert alert-danger" role="alert" id="alertMessage">
+        {{message}}
+    </div>
+    {% endif %} {% endfor s%}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Department</th>
+
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        </thead>
+        {%for emp in emp %}
+        <tbody>
+            <tr>
+                <th scope="row">{{emp.id}}</th>
+                <td> {{emp.name}}</td>
+                <td>{{emp.role}}</td>
+                <td>{{emp.department}}</td>
+
+                <td>
+                    <a class="btn btn-primary" href="/remove_emp/{{ emp.id }}" role="button">Edit</a>
+
+                    <a class="btn btn-primary" href="/remove_emp/{{ emp.id }}" role="button">Delete</a>
+
+            </tr>
+
+        </tbody>
+        {%endfor%}
+    </table>
+</div>
+<script>
+    // Get the alert element
+    var alertMessage = document.getElementById('alertMessage');
+
+    // Function to hide the alert after 3 seconds
+    setTimeout(function() {
+        alertMessage.style.display = 'none';
+    }, 3000); // 3000 milliseconds = 3 seconds
+</script>
+
+
+
+{% endblock %}s

@@ -1,0 +1,33 @@
+<!-- other_template.html -->
+{% extends 'base.html' %} {% block title %}Page Title{% endblock %} {% block content %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Department</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Hire Date</th>
+            </tr>
+        </thead>
+        {%for emp in all_emp %}
+        <tbody>
+            <tr>
+                <th scope="row">{{emp.id}}</th>
+                <td> {{emp.name}}</td>
+                <td>{{emp.role}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.salary}}</td>
+                <td>{{emp.hire_date}}</td>
+            </tr>
+
+        </tbody>
+        {%endfor%}
+    </table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- other_template.html -->
+{% extends 'base.html' %} {% block title %}Page Title{% endblock %} {% block content %}
+
+<div class="container">
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert" id="alertMessage">
+        {{message}}
+
+    </div>
+    {% endfor %}
+
+    <form action="/add_emp" method="post">
+        {%csrf_token%}
+
+
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+
+        <label for="role" class="form-label">Role</label>
+        <input type="number" class="form-control" name="role" id="role" value="{{role}}">
+
+        <label for="department" class="form-label">Department</label>
+        <input type="number" class="form-control" name="department" id="department" value="{{department}}">
+
+        <label for="salary" class="form-label">Salary</label>
+        <input type="number" class="form-control" name="salary" id="salary" value="{{salary}}">
+
+        <label for="hire_date" class="form-label">Hire Date</label>
+        <input type="date" class="form-control" name="hire_date" id="hire_date" value="{{hire_date}}">
+        <hr>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+</div>
+
+
+{% endblock %}

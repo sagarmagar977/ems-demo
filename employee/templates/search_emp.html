@@ -1,0 +1,23 @@
+<!-- other_template.html -->
+{% extends 'base.html' %} {% block title %}Page Title{% endblock %} {% block content %} 
+
+
+
+<div class="container">
+
+    <form action="/search_emp" method="post">
+        {%csrf_token%}
+        
+        
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+        <label for="role" class="form-label">Role</label>
+        <input type="text" class="form-control" name="role" id="role" value="{{role}}">
+        <label for="department" class="form-label">department</label>
+        <input type="text" class="form-control" name="department" id="department" value="{{department}}">
+        <br>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+{% endblock %}
